@@ -62,6 +62,7 @@ To execute a SPR you only need send a valid standard NDC **AirShopping** request
 Authentication
 ----
 All requests sent to the **NDC Gateway**  are required to be consumer-authenticated with a couple of HTTP headers:
+
 > **AG-Consumer**:  {Consumer-Key}
 > **AG-Authorization**: {Proxy-key}
 
