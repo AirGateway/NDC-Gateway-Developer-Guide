@@ -1,4 +1,4 @@
-*Timestamp: 01-06-2017*
+v0.5.1
 
 AirGateway NDC Gateway Developer Guide
 ====================
@@ -63,7 +63,7 @@ Authentication
 ----
 All requests sent to the **NDC Gateway**  are required to be consumer-authenticated with a couple of HTTP headers:
 > **AG-Consumer**:  {Consumer-Key}
-> **
+> **AG-Authorization**: {Proxy-key}
 
 ----------
 
