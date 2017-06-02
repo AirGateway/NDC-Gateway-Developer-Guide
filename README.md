@@ -94,10 +94,10 @@ This is a list of NDC valid requests to send to our gateway:
 Request Samples
 ---
 
-**AirShopping** MPR request
+**MPR request sample (AirShopping)** 
 
 ```
-<AirShoppingRQ Version="15.2" xmlns="http://www.iata.org/IATA/EDIST" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.iata.org/IATA/EDIST ../AirShoppingRQ.xsd">
+<AirShoppingRQ xmlns="http://www.iata.org/IATA/EDIST" Version="12.2">
 	<Document>
 		<Name>NDC Wrapper</Name>
 		<ReferenceVersion>1.0</ReferenceVersion>
@@ -146,11 +146,10 @@ Request Samples
 ```
 ---
 
-**AirShopping** response
+**AirShopping** MPR response
 
 ```
 <!-- AG-Info: ProviderName: FA | Status: ok | ResponseTime: 115 | ProcessingTime: 0 -->
-<?xml version="1.0"?>
 <AirShoppingRS xmlns="http://www.iata.org/IATA/EDIST" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Document>
         <Name>OpenNDC Sandbox</Name>
@@ -169,7 +168,7 @@ Request Samples
         </AirlineOffers>
     </OffersGroup>
 </AirShoppingRS>
-<!-- AG-Info: ProviderName: IA | ResponseTime: 114 | ProcessingTime: 0 -->
+<!-- AG-Info: ProviderName: IA | Status: ok | ResponseTime: 114 | ProcessingTime: 0 -->
 <?xml version="1.0"?>
 <AirShoppingRS xmlns="http://www.iata.org/IATA/EDIST" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Document>
@@ -189,8 +188,7 @@ Request Samples
         </AirlineOffers>
     </OffersGroup>
 </AirShoppingRS>
-<!-- AG-Info: ProviderName: WA | ResponseTime: 387 | ProcessingTime: 1 -->
-<?xml version="1.0"?>
+<!-- AG-Info: ProviderName: WA | Status: ok | ResponseTime: 387 | ProcessingTime: 1 -->
 <AirShoppingRS xmlns="http://www.iata.org/IATA/EDIST" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <Document>
         <Name>OpenNDC Sandbox</Name>
@@ -522,3 +520,93 @@ Request Samples
     </Metadata>
 </AirShoppingRS>
 ```
+
+
+**MPR request sample (AirShopping)** 
+
+```
+<FlightPriceRQ xmlns="http://www.iata.org/IATA/EDIST" Version="15.2">
+  <Document>
+    <MessageVersion>1.1.3</MessageVersion>
+  </Document>
+  <Party>
+    <Sender>
+      <TravelAgencySender>
+        <Name>test agent</Name>
+        <OtherIDs>
+          <OtherID></OtherID>
+        </OtherIDs>
+        <AgencyID>test agent</AgencyID>
+      </TravelAgencySender>
+    </Sender>
+  </Party>
+  <Travelers>
+    <Traveler>
+      <AnonymousTraveler ObjectKey="SH1">
+        <PTC>ADT</PTC>
+      </AnonymousTraveler>
+    </Traveler>
+  </Travelers>
+  <Query>
+    <OriginDestination>
+      <Flight>
+        <Departure>
+          <AirportCode>LHR</AirportCode>
+          <Date>2016-11-20</Date>
+        </Departure>
+        <Arrival>
+          <AirportCode>AMS</AirportCode>
+          <Date>2016-11-20</Date>
+        </Arrival>
+        <MarketingCarrier>
+          <AirlineID>BA</AirlineID>
+          <FlightNumber>0430</FlightNumber>
+        </MarketingCarrier>
+        <Equipment>
+          <AircraftCode>744</AircraftCode>
+        </Equipment>
+        <ClassOfService>
+          <Code>H</Code>
+          <MarketingName>Euro Traveller</MarketingName>
+        </ClassOfService>
+      </Flight>
+    </OriginDestination>
+    <OriginDestination>
+      <Flight>
+        <Departure>
+          <AirportCode>AMS</AirportCode>
+          <Date>2016-11-27</Date>
+        </Departure>
+        <Arrival>
+          <AirportCode>LHR</AirportCode>
+          <Date>2016-11-27</Date>
+        </Arrival>
+        <MarketingCarrier>
+          <AirlineID>BA</AirlineID>
+          <FlightNumber>0429</FlightNumber>
+        </MarketingCarrier>
+        <Equipment>
+          <AircraftCode>744</AircraftCode>
+        </Equipment>
+        <ClassOfService>
+          <Code>H</Code>
+          <MarketingName>Euro Traveller</MarketingName>
+        </ClassOfService>
+      </Flight>
+    </OriginDestination>
+  </Query>
+  <Metadata>
+    <Other>
+      <OtherMetadata>
+        <LanguageMetadatas>
+          <LanguageMetadata MetadataKey="Display">
+            <Application>Display</Application>
+            <Code_ISO>en</Code_ISO>
+          </LanguageMetadata>
+        </LanguageMetadatas>
+      </OtherMetadata>
+    </Other>
+  </Metadata>
+</FlightPriceRQ>
+```
+
