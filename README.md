@@ -91,30 +91,19 @@ This is a list of NDC valid requests to send to our gateway:
 - ServiceList
 - ServicePrice
 
+
 Request Samples
 ---
 
 **MPR request sample (AirShopping)** 
 
+RQ:
 ```
-<AirShoppingRQ xmlns="http://www.iata.org/IATA/EDIST" Version="12.2">
+<AirShoppingRQ xmlns="http://www.iata.org/IATA/EDIST" Version="15.2">
 	<Document>
 		<Name>NDC Wrapper</Name>
 		<ReferenceVersion>1.0</ReferenceVersion>
 	</Document>
-	<Party>
-		<Sender>
-			<ORA_Sender>
-				<AgentUser>
-					<Name>Travel Wadus</Name>
-					<Type>TravelManagementCompany</Type>
-					<PseudoCity>A4A</PseudoCity>
-					<IATA_Number>00000000</IATA_Number>
-				   <AgentUserID>travelwadus</AgentUserID>
-				</AgentUser>
-			</ORA_Sender>
-		</Sender>
-	</Party>
 	<Parameters>
 		<CurrCodes>
 			<CurrCode>EUR</CurrCode>
@@ -146,8 +135,7 @@ Request Samples
 ```
 ---
 
-**AirShopping** MPR response
-
+RS:
 ```
 <!-- AG-Info: ProviderName: FA | Status: ok | ResponseTime: 115 | ProcessingTime: 0 -->
 <AirShoppingRS xmlns="http://www.iata.org/IATA/EDIST" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -522,24 +510,14 @@ Request Samples
 ```
 
 
-**MPR request sample (AirShopping)** 
+**MPR request sample (FlightPrice)**
 
+RQ:
 ```
 <FlightPriceRQ xmlns="http://www.iata.org/IATA/EDIST" Version="15.2">
   <Document>
     <MessageVersion>1.1.3</MessageVersion>
   </Document>
-  <Party>
-    <Sender>
-      <TravelAgencySender>
-        <Name>test agent</Name>
-        <OtherIDs>
-          <OtherID></OtherID>
-        </OtherIDs>
-        <AgencyID>test agent</AgencyID>
-      </TravelAgencySender>
-    </Sender>
-  </Party>
   <Travelers>
     <Traveler>
       <AnonymousTraveler ObjectKey="SH1">
@@ -552,11 +530,11 @@ Request Samples
       <Flight>
         <Departure>
           <AirportCode>LHR</AirportCode>
-          <Date>2016-11-20</Date>
+          <Date>2017-11-20</Date>
         </Departure>
         <Arrival>
           <AirportCode>AMS</AirportCode>
-          <Date>2016-11-20</Date>
+          <Date>2017-11-20</Date>
         </Arrival>
         <MarketingCarrier>
           <AirlineID>BA</AirlineID>
@@ -575,11 +553,11 @@ Request Samples
       <Flight>
         <Departure>
           <AirportCode>AMS</AirportCode>
-          <Date>2016-11-27</Date>
+          <Date>2017-11-27</Date>
         </Departure>
         <Arrival>
           <AirportCode>LHR</AirportCode>
-          <Date>2016-11-27</Date>
+          <Date>2017-11-27</Date>
         </Arrival>
         <MarketingCarrier>
           <AirlineID>BA</AirlineID>
@@ -609,4 +587,7 @@ Request Samples
   </Metadata>
 </FlightPriceRQ>
 ```
+
+RS:
+
 
