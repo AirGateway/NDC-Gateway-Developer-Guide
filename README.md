@@ -120,11 +120,32 @@ MPR response format:
 <!-- AG-EOM -->
 ```
 
-All Responses from providers are normalized to an optimized "easier consumable format"
-
 
 SPR (Single provider requests)
 -------------
+By principle, non-AirShopping NDC requests are considered SPR. This means:
 
-To execute a SPR you only need send a valid standard NDC **AirShopping** request including an HTTP header detailing a specific provider like this:
+- FlightPrice
+- SeatAvailability
+- OrderCreate
+- OrderRetrieve
+- OrderChange
+- OrderCancel
+- ServiceList
+- ServicePrice
+
+
+To execute a SPR you need send a valid standard NDC request including an HTTP header detailing a specific provider like this:
 > **AG-Providers:** BA
+
+SPR responses don't have special any special wrapping since only one response is delivered in synchronous mode.
+
+Normalization
+-----------
+
+All responses from providers are normalized to an optimized consumable XML format: **No SOAP wrapping**, **No extra-wrapping**, **No in-message namespaces**
+
+WIP:
+```
+We are working in a higher level of normalization on the NDC responses in order to facilitate consumers integration of NDC in their applications/systems.
+```
