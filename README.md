@@ -1,22 +1,22 @@
-v0.1.2
+v0.2.0
 
 AirGateway NDC Gateway Developer Guide
 ====================
 
-This is a developer guide intended for our **NDC Gateway** aggregation service. Our platform is designed to facilitate the connection to the new [NDC (New Distribution Capability)](http://www.iata.org/whatwedo/airline-distribution/ndc/) model established by IATA in a multiple-provider world.
+This is a developer guide intended to provide insights on a technical integration with AirGateway's **NDC JSON API** aggregation service.
 
-Our **NDC Gateway** facilitates the task of accessing multiple NDC providers in a one-to-one integration architecture. This makes easier to interact with the NDC architecture and travel agents transitioning into it.
+Our platform is designed to facilitate the interaction with the new distribution model brought by [NDC (New Distribution Capability)](http://www.iata.org/whatwedo/airline-distribution/ndc/) established by IATA and adopted by a growing number of the most relevant airlines in the World.
 
-Our **NDC Gateway** works as a "router" delivering and collecting  concurrently shopping offers from multiple NDC providers (airlines) and deliver an asynchronous real-time aggregation isolating consumers from a lot of cases they won't need to consider such as message wrapping (SOAP, REST...), Authentication issues, host architecture issues, and ancillaries normalization.
-Also transitioning among different NDC versions/implementations will be a  much easier process to handle relying our **NDC Gateway**.
+Our **NDC Aggregation Platform** facilitates the interaction with multiple NDC providers in a one-to-one architecture. This makes much easier to interact with distributed airline NDC APIs and therefore facilitates transitioning into this model.
+
+Our **NDC Aggregation Platform** works as a real-time routing machine delivering and collecting concurrently shopping offers from multiple NDC providers (airlines) and deliver an asynchronous real-time aggregation isolating consumers from cases they won't need to consider such as message wrapping (SOAP, REST...), Authentication issues, API architectural issues, and ancillaries normalization.
+Also transitioning among different NDC versions/implementations will be a  much easier process to handle relying on our **NDC Aggregation Platform**.
 
 
 NDC Messages available
 ----
 
-We expect plain NDC/XML formatting for the messages. No SOAP or any other wrapping is necessary nor allowed.
-
-This is a list of NDC valid requests to send to our gateway that will be forwarded to the enabled providers:
+This is a list of NDC valid requests in our **v1** version of the API.
 
 - AirShopping
 - FlightPrice
@@ -27,28 +27,33 @@ This is a list of NDC valid requests to send to our gateway that will be forward
 - OrderCancel
 - ServiceList
 - ServicePrice
+- ItinReShop
 
+
+> We are already working on a version upgrade to **v1.5** based in NDC
+> **v17.2** that will replace **FlightPrice** with **OfferPrice** and adding
+> new methods.
 
 Authentication
 ----
-All requests sent to the **NDC Gateway**  are required to be consumer-authenticated with a couple of HTTP headers:
+All requests sent to the **NDC Aggregation Platform**  are required to be consumer-authenticated with a two HTTP headers pair:
 
-> **AG-Consumer**:  {Consumer-Key}
-> **AG-Authorization**: {Proxy-key}
+> **AG-Consumer**:  {Consumer-ID} (three chars. code)
+> **AG-Authorization**: {Authorization-key}
 
 ----------
 
 Note regarding Authentication:
 
-	 We will provide further details on how NDC Participant authentication (IATA number, Agency ID in NDC messages Party block) must be provided since this could be related to final providers.
+	 We will provide further details on how NDC Participant authentication (IATA number, Agency ID in NDC messages Party block) must be provided since this could be related to final production stage.
 
 
 Sending requests to our NDC Gateway
 ------------
-We use **HTTP/1.1** to respond requests to the gateway. All NDC requests are sent using the **POST** HTTP method.
+We use **HTTP/1.1** as communication protocol to accept requests to the gateway. All NDC requests are sent using the **POST** HTTP method.
 
-The public endpoint to our **NDC Gateway** remains inmutable for all NDC requests and it is:
-> http://prxy.airgateway.net:8181/gtwy/ndc/
+The public endpoint to our **NDC Gateway** remains immutable for all NDC requests and it is:
+> http://proxy.airgateway.net:/ndc/v1/
 
 We require some mandatory basic HTTP headers intended for message formatting:
 > **Content-Type**: application/xml
@@ -60,7 +65,7 @@ It's very relevant to distinguish between two types of requests to send to the *
 - **SPR** (Single provider requests)
 
 
-MPR (Multiple provider requests)
+MPR (Multi-Provider requests)
 -------------
 
 This requests are basically restricted to one single NDC method call (**AirShopping**) since it's the only NDC method that makes sense to be concurrently requested to multiple NDC providers.
@@ -69,7 +74,7 @@ To execute a MPR you only need send a valid standard NDC **AirShopping** request
 > **AG-Providers:** *
 This is interpreted by the **NDC Gateway** like a send to all available NDC providers for the consumer.
 
-Alternatively, you can define a list of providers using a list of comma-separated [IATA airline designators](https://en.wikipedia.org/wiki/List_of_airline_codes).
+Alternatively, you can define a list of providers using a list of comma-separated standard [IATA airline designators](https://en.wikipedia.org/wiki/List_of_airline_codes).
 > **AG-Providers:** BA, AA, LH
 
 **MPR Responses**
@@ -140,12 +145,12 @@ To execute a SPR you need send a valid standard NDC request including an HTTP he
 
 SPR responses don't have special any special wrapping since only one response is delivered in synchronous mode.
 
-Normalization
+References and Links
 -----------
+We use a self-documented API Framework that produces always-up to date Swagger Documentation. This live-documentation can be found here.
 
-All responses from providers are normalized to an optimized consumable XML format: **No SOAP wrapping**, **No extra-wrapping**, **No in-message namespaces**
+> https://airgateway.github.io/
 
-WIP:
-```
-We are working in a higher level of normalization on the NDC responses in order to facilitate consumers integration of NDC in their applications/systems.
-```
+For futher questions/comments or just quickly getting in touch with our technical team you are welcome to use our Gitter Support Chat.
+
+> https://gitter.im/AirGateway/Lobby
