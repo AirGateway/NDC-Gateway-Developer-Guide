@@ -133,7 +133,7 @@ References and Links
 -----------
 We use a self-documented API Framework that produces always-up to date Swagger Documentation. This live-documentation can be found here.
 
-> [https://airgateway.github.io/](https://airgateway.github.io/ndc-json-api/)
+> [NDC JSON API reference](https://airgateway.github.io/ndc-json-api/)
 
 For futher questions/comments or just quickly getting in touch with our technical team you are welcome to use our Gitter Support Chat.
 
