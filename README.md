@@ -1,4 +1,4 @@
-v0.2.0
+v0.2.1
 
 AirGateway NDC Gateway Developer Guide
 ====================
@@ -34,18 +34,22 @@ This is a list of NDC valid requests in our **v1** version of the API.
 > **v17.2** that will replace **FlightPrice** with **OfferPrice** and adding
 > new methods.
 
-Authentication
+## Authentication
+
+To be able to access our platform you will have to get the proper credentials at our [Developer Portal](https://dev.airgateway.net/). After registration, you would be able to apply for an Authentication key [here](https://dev.airgateway.net/apis/).
+
 ----
 All requests sent to the **NDC Aggregation Platform**  are required to be consumer-authenticated with a two HTTP headers pair:
 
-> **AG-Consumer**:  {Consumer-ID} (three chars. code)
-> **AG-Authorization**: {Authorization-key}
-
+- **Authorization**: {Authorization-key} (obtained from our Dev Portal)
+- **AG-Consumer**:  {Consumer-ID}  (a three chars. code)
 ----------
 
 Note regarding Authentication:
 
-	 We will provide further details on how NDC Participant authentication (IATA number, Agency ID in NDC messages Party block) must be provided since this could be related to final production stage.
+> We will provide further details on how NDC Participant authentication
+> (IATA number, Agency ID in NDC messages Party block) must be provided
+> since this could be related to final production stage.
 
 
 Sending requests to our NDC Gateway
@@ -53,7 +57,7 @@ Sending requests to our NDC Gateway
 We use **HTTP/1.1** as communication protocol to accept requests to the gateway. All NDC requests are sent using the **POST** HTTP method.
 
 The public endpoint to our **NDC Gateway** remains immutable for all NDC requests and it is:
-> http://proxy.airgateway.net:/ndc/v1/
+> http://proxy.airgateway.net/ndc/v1/
 
 We require some mandatory basic HTTP headers intended for message formatting:
 > **Content-Type**: application/xml
