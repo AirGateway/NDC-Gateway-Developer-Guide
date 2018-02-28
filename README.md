@@ -101,33 +101,13 @@ AirShopping responses are delivered asynchronously (ASAP) wrapped  in XML commen
 
 MPR response format:
 
-```
-<!-- AG-Info: ProviderName: S7 | Status: ok | NDCMethod: AirShopping | ResponseTime: 5374 -->
-<AirShoppingRS xmlns="http://www.iata.org/IATA/EDIST">
-    (...)
-</AirShoppingRS>
-<!-- AG-EOM -->
-<!-- AG-Info: ProviderName: LH | Status: ok | NDCMethod: AirShopping | ResponseTime: 7082 -->
-<AirShoppingRS xmlns="http://www.iata.org/IATA/EDIST">
-    (...)
-</AirShoppingRS>
-<!-- AG-EOM -->
-<!-- AG-Info: ProviderName: AA | Status: ok | NDCMethod: AirShopping | ResponseTime: 7231 -->
-<AirShoppingRS xmlns="http://www.iata.org/IATA/EDIST">
-    (...)
-</AirShoppingRS>
-<!-- AG-EOM -->
-<!-- AG-Info: ProviderName: IB | Status: ok | NDCMethod: AirShopping | ResponseTime: 9376 -->
-<AirShoppingRS xmlns="http://www.iata.org/IATA/EDIST">
-    (...)
-</AirShoppingRS>
-<!-- AG-EOM -->
-<!-- AG-Info: ProviderName: BA | Status: ok | NDCMethod: AirShopping | ResponseTime: 12658 -->
-<AirShoppingRS xmlns="http://www.iata.org/IATA/EDIST">
-    (...)
-</AirShoppingRS>
-<!-- AG-EOM -->
-```
+Our MPR responses (only applies to AirShopping seraches) has two modes: **Streaming** or **Standard HTTP**.
+
+To enabled Streaming mode (strongly recommended for GUI Applications) it's required to send the following HTTP header:
+
+> AG-Connection: keep-alive
+
+Please, keep in mind streaming mode responses use a non-standard JSON notation wrapping called [JSON Streaming](https://en.wikipedia.org/wiki/JSON_streaming) used to streamline a collection of valid JSON objects instead of a resulting JSON-valid notation.  
 
 
 SPR (Single provider requests)
@@ -153,7 +133,7 @@ References and Links
 -----------
 We use a self-documented API Framework that produces always-up to date Swagger Documentation. This live-documentation can be found here.
 
-> https://airgateway.github.io/
+> [https://airgateway.github.io/](https://airgateway.github.io/ndc-json-api/)
 
 For futher questions/comments or just quickly getting in touch with our technical team you are welcome to use our Gitter Support Chat.
 
