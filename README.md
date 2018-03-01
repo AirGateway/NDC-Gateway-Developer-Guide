@@ -60,8 +60,8 @@ The public endpoint to our **NDC Gateway** remains immutable for all NDC request
 > http://proxy.airgateway.net/ndc/v1/
 
 We require some mandatory basic HTTP headers intended for message formatting:
-> **Content-Type**: application/xml
-> **Accept**: application/xml
+> **Content-Type**: application/json
+> **Accept**: application/json
 
 It's very relevant to distinguish between two types of requests to send to the **NDC Gateway**. Attending to the architecture, we have two types of requests with significant differences between them:
 
@@ -82,37 +82,34 @@ Alternatively, you can define a list of providers using a list of comma-separate
 > **AG-Providers:** BA, AA, LH
 
 **MPR Responses**
- 
+
+Multi-Provider responses
+
 MPRs behave asynchronously when used this HTTP headers:
 > **Connection:** keep-alive
-> **Keep-Alive:** timeout=xx
-> (where xx is an integer number of seconds)
+ 
 
-This asynchronously mode is the only available mode for MPR requests.
-
-AirShopping responses are delivered asynchronously (ASAP) wrapped  in XML comments blocks providing some extra info such as:
-
-- ProviderLabel
-- NDCMethod
-- ResponseStatus*
-- ResponseTime*
-(* from provider to our gateway)
-
-
-MPR response format:
+MPR response formats:
 
 Our MPR responses (only applies to AirShopping seraches) has two modes: **Streaming** or **Standard HTTP**.
 
-To enabled Streaming mode (strongly recommended for GUI Applications) it's required to send the following HTTP header:
+To enabled streaming mode (strongly recommended for GUI Applications) it's required to send the following HTTP header:
 
-> AG-Connection: keep-alive
+ - **AG-Connection**: keep-alive
 
-Please, keep in mind streaming mode responses use a non-standard JSON notation wrapping called [JSON Streaming](https://en.wikipedia.org/wiki/JSON_streaming) used to streamline a collection of valid JSON objects instead of a resulting JSON-valid notation.  
+And optionally, for the streaming mode a timeout in the server-side can be set upon request of the client.
+
+ - **Keep-Alive:** timeout=xx (where xx is an integer number in seconds)
+
+
+**Important note** 
+
+> Please, keep in mind streaming mode responses use a non-standard JSON notation wrapping called [JSON Streaming](https://en.wikipedia.org/wiki/JSON_streaming) used to streamline a collection of valid JSON objects instead of a resulting JSON-valid notation.
 
 
 SPR (Single provider requests)
 -------------
-By principle, non-AirShopping NDC requests are considered SPR. This means:
+All non-AirShopping NDC requests are considered SPR. This means:
 
 - FlightPrice
 - SeatAvailability
@@ -128,6 +125,7 @@ To execute a SPR you need send a valid standard NDC request including an HTTP he
 > **AG-Providers:** BA
 
 SPR responses don't have special any special wrapping since only one response is delivered in synchronous mode.
+
 
 References and Links
 -----------
