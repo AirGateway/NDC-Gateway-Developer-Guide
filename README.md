@@ -87,7 +87,7 @@ Multi-Provider responses
 
 MPRs behave asynchronously when used this HTTP headers:
 > **Connection:** keep-alive
- 
+
 
 MPR response formats:
 
@@ -102,7 +102,7 @@ And optionally, for the streaming mode a timeout in the server-side can be set u
  - **Keep-Alive:** timeout=xx (where xx is an integer number in seconds)
 
 
-**Important note** 
+**Important note**
 
 > Please, keep in mind streaming mode responses use a non-standard JSON notation wrapping called [JSON Streaming](https://en.wikipedia.org/wiki/JSON_streaming) used to streamline a collection of valid JSON objects instead of a resulting JSON-valid notation.
 
@@ -125,6 +125,49 @@ To execute a SPR you need send a valid standard NDC request including an HTTP he
 > **AG-Providers:** BA
 
 SPR responses don't have special any special wrapping since only one response is delivered in synchronous mode.
+
+
+Cabin Preferences
+-----------
+
+List of cabin preferences values accepted by provider:
+
+| Provider      | 1 | 2 | 3	| 4 | 5 |	6 |	7 |
+| ------------- |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| AA            | - | - | - | - | - | - | - |
+| BA            | YES | YES | NO | YES | YES | NO | NO |
+| EK            | - | - | - | - | - | - | - |
+| IB            | YES | YES | NO | YES | YES | NO | NO |
+| LH            | - | - | - | - | - | - | - |
+| S7            | NO | YES | NO | NO | YES | NO | NO |
+| WS            | - | - | - | - | - | - | - |
+
+1. First
+2. Business
+3. Lowest
+4. Premium
+5. Economy
+6. Discounted
+7. All
+
+Those with "-" are still in integration process.
+
+Fare Preferences
+-----------
+
+List of fare preferences values accepted by provider:
+
+| Provider      | 70E | 70F | 70G	| 70H | 70I |	70M |	749 |	754 | 758 | 759 |
+| ------------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
+| AA            |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |
+| BA            | NO  | NO  |  NO |  NO |  NO |  NO |  NO | YES | YES | YES |
+| EK            |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |
+| IB            | NO  | NO  |  NO |  NO |  NO |  NO |  NO |  NO | YES |  NO |
+| LH            |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |
+| S7            | NO  |  NO |  NO |  NO |  NO |  NO |  NO |  NO |  NO |  NO |
+| WS            |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |
+
+Those with "-" are still in integration process.
 
 
 References and Links
