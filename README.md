@@ -134,13 +134,13 @@ List of cabin preferences values accepted by provider:
 
 | Provider      | 1 | 2 | 3	| 4 | 5 |	6 |	7 |
 | ------------- |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
-| AA            | - | - | - | - | - | - | - |
+| AA            | YES | YES | NO | NO | YES | NO | NO |
 | BA            | YES | YES | NO | YES | YES | NO | NO |
-| EK            | - | - | - | - | - | - | - |
+| EK            | YES | YES | NO | NO | YES | NO | NO |
 | IB            | YES | YES | NO | YES | YES | NO | NO |
-| LH            | - | - | - | - | - | - | - |
+| LH            | YES | YES | NO | NO | YES | NO | NO |
 | S7            | NO | YES | NO | NO | YES | NO | NO |
-| WS            | - | - | - | - | - | - | - |
+| WS            | YES | YES | NO | NO | YES | NO | NO |
 
 1. First
 2. Business
@@ -159,13 +159,13 @@ List of fare preferences values accepted by provider:
 
 | Provider      | 70E | 70F | 70G	| 70H | 70I |	70M |	749 |	754 | 758 | 759 |
 | ------------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AA            |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |
+| AA            | YES | YES |  NO |  NO |  NO |  NO |  NO |  NO |  NO |  NO |
 | BA            | NO  | NO  |  NO |  NO |  NO |  NO |  NO | YES | YES | YES |
-| EK            |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |
+| EK            | YES | YES |  NO |  NO |  NO |  NO |  NO |  NO |  NO |  NO |
 | IB            | NO  | NO  |  NO |  NO |  NO |  NO |  NO |  NO | YES |  NO |
-| LH            |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |
+| LH            | YES | YES |  NO |  NO |  NO |  NO |  NO |  NO |  NO |  NO |
 | S7            | NO  |  NO |  NO |  NO |  NO |  NO |  NO |  NO |  NO |  NO |
-| WS            |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |  -  |
+| WS            | YES | YES |  NO |  NO |  NO |  NO |  NO |  NO |  NO |  NO |
 
 Those with "-" are still in integration process.
 
