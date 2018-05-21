@@ -134,6 +134,7 @@ List of cabin preferences values accepted by provider:
 
 | Provider      | 1 | 2 | 3	| 4 | 5 |	6 |	7 |
 | ------------- |:-:|:-:|:-:|:-:|:-:|:-:|:-:|
+| A3            | YES | YES |  |  | YES |  |  |
 | AA            | YES | YES |  |  | YES |  |  |
 | BA            | YES | YES |  | YES | YES |  |  |
 | EK            | YES | YES |  |  | YES |  |  |
@@ -159,6 +160,7 @@ List of fare preferences values accepted by provider:
 
 | Provider      | 70E | 70F |	754 | 758 | 759 |
 | ------------- |:---:|:---:|:---:|:---:|:---:|
+| A3            | YES | YES |     |     |     |
 | AA            | YES | YES |     |     |     |
 | BA            |     |     | YES | YES | YES |
 | EK            | YES | YES |     |     |     |
