@@ -157,15 +157,15 @@ Fare Preferences
 
 List of fare preferences values accepted by provider:
 
-| Provider      | 70E | 70F | 70G	| 70H | 70I |	70M |	749 |	754 | 758 | 759 |
-| ------------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|
-| AA            | YES | YES |   |   |   |   |   |   |   |   |
-| BA            |   |   |   |   |   |   |   | YES | YES | YES |
-| EK            | YES | YES |   |   |   |   |   |   |   |   |
-| IB            |   |   |   |   |   |   |   |   | YES |   |
-| LH            | YES | YES |   |   |   |   |   |   |   |   |
-| S7            |   |   |   |   |   |   |   |   |   |   |
-| WS            | YES | YES |   |   |   |   |   |   |   |   |
+| Provider      | 70E | 70F |	754 | 758 | 759 |
+| ------------- |:---:|:---:|:---:|:---:|:---:|
+| AA            | YES | YES |     |     |     |
+| BA            |     |     | YES | YES | YES |
+| EK            | YES | YES |     |     |     |
+| IB            |     |     |     | YES |     |
+| LH            | YES | YES |     |     |     |
+| S7            |     |     |     |     |     |
+| WS            | YES | YES |     |     |     |
 
 Those with "-" are still in integration process.
 
